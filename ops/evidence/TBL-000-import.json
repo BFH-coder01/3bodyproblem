@@ -1,0 +1,30 @@
+{
+  "type": "author-run",
+  "date": "2026-10-23",
+  "environment": {
+    "os": "Linux",
+    "python": "3.12.14",
+    "node": "24.19.0",
+    "git": "2.51.1"
+  },
+  "repositoryBase": "b28db6ab55106c5a4a998fc441f4199f3b78ed8a",
+  "parentHead": "420def48cecb27dde9d529ab3fdd8133620bba76",
+  "sourceCommit": "945f1aeca3f3e11b516169ae9361bbeaaad11fdf",
+  "runs": [
+    {
+      "command": "python3 -m unittest discover -s tests -v",
+      "exit_code": 0,
+      "output": "test_base_mismatch_refused (test_workspaces.WorktreeTests.test_base_mismatch_refused) ... ok\ntest_create_exact_branch_base_and_envelope (test_workspaces.WorktreeTests.test_create_exact_branch_base_and_envelope) ... ok\ntest_dirty_root_refused (test_workspaces.WorktreeTests.test_dirty_root_refused) ... ok\ntest_existing_workspace_is_preserved (test_workspaces.WorktreeTests.test_existing_workspace_is_preserved) ... ok\ntest_nested_worktrees_refused (test_workspaces.WorktreeTests.test_nested_worktrees_refused) ... ok\ntest_plan_does_not_mutate (test_workspaces.WorktreeTests.test_plan_does_not_mutate) ... ok\ntest_role_mismatch_refused (test_workspaces.WorktreeTests.test_role_mismatch_refused) ... ok\ntest_unready_task_refused (test_workspaces.WorktreeTests.test_unready_task_refused) ... ok\n\n----------------------------------------------------------------------\nRan 8 tests in 0.573s\n\nOK\n"
+    },
+    {
+      "command": "node baseline/tests/physics-scan.cjs",
+      "exit_code": 0,
+      "output": "{\n  eightOutcome: 'Bounded',\n  eightFrames: 938,\n  orbit: {\n    detected: true,\n    reason: 'Full relative state repeats across 3 observed cycles',\n    period: 5.713338304503539,\n    cycles: 3,\n    maxNormalizedError: 0.0012983389502081444,\n    tolerance: 0.02\n  }\n}\nPASS: exhaustive enumeration order and direct resume, 1.794 billion count, radius spacing, all-rest physics, collapse/escape rejection, periodic reference detection and insufficient-cycle rejection.\nPASS: first 28 short rest-start trials excluded; trial 29 qualifies; exact five-second boundary excluded.\nPASS: all escapes qualify, including a real all-rest scan escape at 4.769 seconds; other short outcomes remain excluded.\n"
+    },
+    {
+      "command": "sh -n scripts/new-agent-workspace.sh",
+      "exit_code": 0,
+      "output": ""
+    }
+  ]
+}

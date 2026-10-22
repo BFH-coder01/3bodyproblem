@@ -18,11 +18,12 @@
     "unresolved findings"
   ],
   "reserved_approval": false,
-  "dispatch_note": "Coordinator owns this plan/tooling foundation and shared CI guidance. Private Site source publication was blocked by automatic approval review pending explicit owner approval. Source import, independent verification and task acceptance remain pending. Other roadmap tasks remain planned.",
+  "dispatch_note": "Coordinator owns foundation import and shared CI guidance. Browser source publication is authorized by the owner. Source and tests are imported without code edits. Independent verification and acceptance remain pending; other roadmap tasks remain planned.",
   "branch": "agent/coordinator/tbl-000-foundation",
-  "authority": "Bounded bootstrap branch and draft PR following repository handoff; no main merge delegation.",
+  "authority": "Owner supplied the repository and then requested commit and push in response to the public source-import approval question. Task branch and draft PR only; no main merge delegation.",
   "acceptance_commands": [
     "python3 -m unittest discover -s tests -v",
+    "node baseline/tests/physics-scan.cjs",
     "python3 scripts/validate_bootstrap.py"
   ]
 }

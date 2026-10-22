@@ -13,8 +13,11 @@ jobs:
       - name: Environment requirements
         run: |
           python3 -c "import sys; assert sys.version_info >= (3,11); print(sys.version)"
+          node -e "if (+process.versions.node.split('.')[0] < 18) process.exit(1); console.log(process.version)"
           git --version
       - name: Workspace helper tests
         run: python3 -m unittest discover -s tests -v
+      - name: Browser physics and replay tests
+        run: node baseline/tests/physics-scan.cjs
       - name: Manifest and task graph
         run: python3 scripts/validate_bootstrap.py

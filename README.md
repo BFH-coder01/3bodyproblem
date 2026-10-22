@@ -4,7 +4,7 @@ Prepared for Werner van Huffel · 23 October 2026 · Australia/Brisbane.
 
 **Recommendation:** one coordinator, protected `main`, one local clone per machine, and one isolated Git worktree per active development task. Agents own task branches; the coordinator owns integration; Werner owns scientific scope and releases.
 
-This repository contains the architecture, design, roadmap and tested workspace-tooling starter. It does not implement the distributed solver, configure GitHub, install AMD drivers, connect to your rig, or start autonomous agents.
+This repository contains the browser simulator baseline, architecture, design, roadmap and tested workspace-tooling starter. It does not implement the distributed solver, configure GitHub, install AMD drivers, connect to your rig, or start autonomous agents.
 
 ## Read in this order
 
@@ -25,7 +25,7 @@ Repository: [BFH-coder01/3bodyproblem](https://github.com/BFH-coder01/3bodyprobl
 
 Windows: `D:\Development\ThreeBodyLab\repo`, with sibling `worktrees`, `data`, and `artifacts` directories. Linux: `~/Development/ThreeBodyLab/repo`, with the same siblings. Every remote machine uses its own clone and its own local worktrees.
 
-The existing browser implementation is the migration baseline, observed at commit `945f1aeca3f3e11b516169ae9361bbeaaad11fdf`. Its source remains in its private Site checkout. Publishing that source into this public repository requires explicit owner approval; no browser source is included in this foundation PR.
+The existing browser implementation is the migration baseline, observed at commit `945f1aeca3f3e11b516169ae9361bbeaaad11fdf`. Its runtime source and tests are imported without edits under `baseline/`, following owner approval to commit and push into this public repository. See [baseline provenance and run instructions](baseline/README.md).
 
 ## What can be used now
 
@@ -44,7 +44,8 @@ TBL-000 is prepared for review; other task statuses are `planned`; a roadmap-rea
 
 ```bash
 python3 -m unittest discover -s tests -v
+node baseline/tests/physics-scan.cjs
 python3 scripts/validate_bootstrap.py
 ```
 
-The `bootstrap` GitHub Actions workflow runs these workspace and inventory checks. It does not test a solver. GPU checks and protected-branch settings have not been configured. TBL-000 still needs owner approval for the browser source import, independent verification and acceptance. The following gates are rig inventory (TBL-001), scientific model decision (TBL-002), and contracts (TBL-010). No remote agent has been launched and routine main-merge authority has not been delegated.
+The `bootstrap` GitHub Actions workflow runs the workspace, browser physics/replay and inventory checks. GPU checks and protected-branch settings have not been configured. TBL-000 includes the approved browser source import; independent verification and acceptance remain pending. The following gates are rig inventory (TBL-001), scientific model decision (TBL-002), and contracts (TBL-010). No remote agent has been launched and routine main-merge authority has not been delegated.
