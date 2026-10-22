@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.env.*
+!.env.example
+build/
+out/
+data/
+artifacts/
+.agent-workspace.json
+.coordinator-local/
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm

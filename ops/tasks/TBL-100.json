@@ -1,0 +1,25 @@
+{
+  "task_id": "TBL-100",
+  "slug": "pilot-release",
+  "role": "coordinator",
+  "status": "planned",
+  "owner": null,
+  "accepted_base_sha": null,
+  "dependencies": [
+    "TBL-090"
+  ],
+  "allowed_paths": [
+    "ops/releases/",
+    "docs/"
+  ],
+  "acceptance_reference": "docs/03-roadmap.md#roadmap-and-workspace-allocation",
+  "required_evidence": [
+    "exact base and final head SHAs",
+    "relevant independent checks and raw results",
+    "environment/build identifiers",
+    "artifact paths and hashes",
+    "unresolved findings"
+  ],
+  "reserved_approval": true,
+  "dispatch_note": "Coordinator must confirm dependencies, scope, authority and accepted base before setting ready. Shared build/CI changes need a separate owner assignment."
+}

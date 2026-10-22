@@ -1,0 +1,29 @@
+{
+  "task_id": "TBL-010",
+  "slug": "contracts",
+  "role": "contracts",
+  "status": "planned",
+  "owner": null,
+  "accepted_base_sha": null,
+  "dependencies": [
+    "TBL-001",
+    "TBL-002"
+  ],
+  "allowed_paths": [
+    "contracts/",
+    "schemas/",
+    "configs/",
+    "tests/contracts/",
+    "tests/fixtures/"
+  ],
+  "acceptance_reference": "docs/03-roadmap.md#roadmap-and-workspace-allocation",
+  "required_evidence": [
+    "exact base and final head SHAs",
+    "relevant independent checks and raw results",
+    "environment/build identifiers",
+    "artifact paths and hashes",
+    "unresolved findings"
+  ],
+  "reserved_approval": false,
+  "dispatch_note": "Coordinator must confirm dependencies, scope, authority and accepted base before setting ready. Shared build/CI changes need a separate owner assignment."
+}

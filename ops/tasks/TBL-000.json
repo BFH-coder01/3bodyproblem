@@ -1,0 +1,29 @@
+{
+  "task_id": "TBL-000",
+  "slug": "foundation",
+  "role": "coordinator",
+  "status": "in_review",
+  "owner": "coordinator",
+  "accepted_base_sha": "b28db6ab55106c5a4a998fc441f4199f3b78ed8a",
+  "dependencies": [],
+  "allowed_paths": [
+    "**"
+  ],
+  "acceptance_reference": "docs/03-roadmap.md#roadmap-and-workspace-allocation",
+  "required_evidence": [
+    "exact base and final head SHAs",
+    "relevant independent checks and raw results",
+    "environment/build identifiers",
+    "artifact paths and hashes",
+    "unresolved findings"
+  ],
+  "reserved_approval": false,
+  "dispatch_note": "Coordinator owns foundation import and shared CI guidance. Browser source publication is authorized by the owner. Source and tests are imported without code edits. Independent verification and acceptance remain pending; other roadmap tasks remain planned.",
+  "branch": "agent/coordinator/tbl-000-foundation",
+  "authority": "Owner supplied the repository and then requested commit and push in response to the public source-import approval question. Task branch and draft PR only; no main merge delegation.",
+  "acceptance_commands": [
+    "python3 -m unittest discover -s tests -v",
+    "node baseline/tests/physics-scan.cjs",
+    "python3 scripts/validate_bootstrap.py"
+  ]
+}
