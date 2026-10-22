@@ -1,0 +1,28 @@
+{
+  "task_id": "TBL-110",
+  "slug": "merger-model",
+  "role": "numerical",
+  "status": "planned",
+  "owner": null,
+  "accepted_base_sha": null,
+  "dependencies": [
+    "TBL-002",
+    "TBL-050",
+    "TBL-060"
+  ],
+  "allowed_paths": [
+    "native/core/",
+    "tests/merger/",
+    "docs/adr/"
+  ],
+  "acceptance_reference": "docs/03-roadmap.md#roadmap-and-workspace-allocation",
+  "required_evidence": [
+    "exact base and final head SHAs",
+    "relevant independent checks and raw results",
+    "environment/build identifiers",
+    "artifact paths and hashes",
+    "unresolved findings"
+  ],
+  "reserved_approval": true,
+  "dispatch_note": "Coordinator must confirm dependencies, scope, authority and accepted base before setting ready. Shared build/CI changes need a separate owner assignment."
+}

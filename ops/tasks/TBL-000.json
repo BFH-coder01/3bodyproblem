@@ -1,0 +1,28 @@
+{
+  "task_id": "TBL-000",
+  "slug": "foundation",
+  "role": "coordinator",
+  "status": "in_review",
+  "owner": "coordinator",
+  "accepted_base_sha": "b28db6ab55106c5a4a998fc441f4199f3b78ed8a",
+  "dependencies": [],
+  "allowed_paths": [
+    "**"
+  ],
+  "acceptance_reference": "docs/03-roadmap.md#roadmap-and-workspace-allocation",
+  "required_evidence": [
+    "exact base and final head SHAs",
+    "relevant independent checks and raw results",
+    "environment/build identifiers",
+    "artifact paths and hashes",
+    "unresolved findings"
+  ],
+  "reserved_approval": false,
+  "dispatch_note": "Coordinator owns this plan/tooling foundation and shared CI guidance. Private Site source publication was blocked by automatic approval review pending explicit owner approval. Source import, independent verification and task acceptance remain pending. Other roadmap tasks remain planned.",
+  "branch": "agent/coordinator/tbl-000-foundation",
+  "authority": "Bounded bootstrap branch and draft PR following repository handoff; no main merge delegation.",
+  "acceptance_commands": [
+    "python3 -m unittest discover -s tests -v",
+    "python3 scripts/validate_bootstrap.py"
+  ]
+}

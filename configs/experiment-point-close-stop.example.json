@@ -1,0 +1,19 @@
+{
+  "status": "proposed-contract-not-yet-accepted",
+  "manifest_version": "1-draft",
+  "model": "point-close-stop-v1",
+  "base_mass_units": [1, 1, 1],
+  "initial_velocity": "zero",
+  "mu_per_base_mass_m3_s2": 9.80665,
+  "observation_square_m": [-6, 6, -6, 6],
+  "enumeration": "radius-lexicographic-triples-v1",
+  "grid_step_m": 0.25,
+  "display_radius_m": 0.25,
+  "close_separation_m": 0.015,
+  "integration": "adaptive-kick-drift-kick-verlet-baseline-v1",
+  "maximum_simulated_time_s": 30,
+  "maximum_timestep_s": 0.002,
+  "precision_policy": "fp64-reference-v1",
+  "maximum_steps_per_trial": 2000000,
+  "display_policy": {"always_show": ["Escaped"], "other_duration_strictly_greater_than_s": 5}
+}
