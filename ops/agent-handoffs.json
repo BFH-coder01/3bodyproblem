@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-23",
+  "repository": "BFH-coder01/3bodyproblem",
+  "upstream_base": "d2ec4b41a544dede14a94db08b5741c17d32ffe2",
+  "integration_branch": "agent/coordinator/cpu-pipeline",
+  "reviewed_code_head": "dd18d00c5caf8576187462a19b6eb5600f2d585c",
+  "final_code_head": "ea2ae78c0c2423729a36e2819a1a9e52b06c94f9",
+  "verifier_report": "verification/CPU-060-review.md",
+  "components": [
+    {
+      "branch": "agent/reference/cpu-020",
+      "local_head": "bd462964303aec21f42f688b70ba71df004109a0",
+      "remote_head": "476a7f1d7940c5f152de3ab4c912fe242c75570b",
+      "remote_tree": "032ad6dff0bfd8020919dfea351ec2bd6fc456d4"
+    },
+    {
+      "branch": "agent/ledger/cpu-030",
+      "local_head": "79518e10aa18bc36dd299bffde7d7ecceb95c66c",
+      "remote_head": "9edf0d9c37e98c4f580d37d5ee3ba9c051105543",
+      "remote_tree": "8c294d224533e2fa7340d7a585b61ad52f573ba0"
+    },
+    {
+      "branch": "agent/viewer/cpu-040",
+      "local_head": "4708dc67559e7a589d5a4a4266fea68bb19e6559",
+      "remote_head": "cf597172871735655abcb6743add3937c4379d60",
+      "remote_tree": "4b6507a6e7e370b350bb7c2dcad54efab1ca389c"
+    },
+    {
+      "branch": "agent/platform/cpu-050",
+      "local_head": "1309e7300b9c333b32284fc346ab039b1a9674f1",
+      "remote_head": "9dc01a250bb5cd2abc2ec681945069a7bbaa06cc",
+      "remote_tree": "0217a97e47ef8e25e6db58c17f83a04fa28ae5fb"
+    }
+  ],
+  "publication_note": "Native git push lacked credentials. Authenticated GitHub connector published each component snapshot, preserving upstream parent and recording local-to-remote head mapping. Component snapshot inventories were refreshed by the coordinator. Integration adds source-build fencing and all component fixes. These component branches are handoffs, not independently merged releases."
+}

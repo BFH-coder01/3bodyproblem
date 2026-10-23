@@ -1,0 +1,63 @@
+{
+  "date": "2026-10-23",
+  "type": "author-run; independent model review separate",
+  "source_code_head": "ea2ae78c0c2423729a36e2819a1a9e52b06c94f9",
+  "suites": [
+    {
+      "suite": "python",
+      "command": "python3 -m unittest discover -s tests -v",
+      "exit_code": 0,
+      "tail": "fused) ... ok\ntest_existing_workspace_is_preserved (test_workspaces.WorktreeTests.test_existing_workspace_is_preserved) ... ok\ntest_nested_worktrees_refused (test_workspaces.WorktreeTests.test_nested_worktrees_refused) ... ok\ntest_plan_does_not_mutate (test_workspaces.WorktreeTests.test_plan_does_not_mutate) ... ok\ntest_role_mismatch_refused (test_workspaces.WorktreeTests.test_role_mismatch_refused) ... ok\ntest_unready_task_refused (test_workspaces.WorktreeTests.test_unready_task_refused) ... ok\n\n----------------------------------------------------------------------\nRan 26 tests in 4.720s\n\nOK\n"
+    },
+    {
+      "suite": "independent",
+      "command": "python3 -m unittest discover -s verification -v",
+      "exit_code": 0,
+      "tail": "-\n127.0.0.1 - - [23/Oct/2026 10:45:52] \"POST /v1/results HTTP/1.1\" 400 -\n127.0.0.1 - - [23/Oct/2026 10:45:52] \"POST /v1/results HTTP/1.1\" 400 -\n127.0.0.1 - - [23/Oct/2026 10:45:52] \"POST /v1/results HTTP/1.1\" 400 -\n127.0.0.1 - - [23/Oct/2026 10:45:52] \"POST /v1/results HTTP/1.1\" 400 -\n127.0.0.1 - - [23/Oct/2026 10:45:52] \"POST /v1/results HTTP/1.1\" 400 -\n127.0.0.1 - - [23/Oct/2026 10:45:53] \"POST /v1/results HTTP/1.1\" 200 -\n127.0.0.1 - - [23/Oct/2026 10:45:53] \"POST /v1/results HTTP/1.1\" 200 -\nok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.794s\n\nOK\n"
+    },
+    {
+      "suite": "reference",
+      "command": "node tests/reference-pipeline.cjs",
+      "exit_code": 0,
+      "tail": "PASS: canonical identity, strict input validation, baseline parity, stateless isolation, all-rest search, replay policy and bounded NDJSON error recovery.\n"
+    },
+    {
+      "suite": "viewer",
+      "command": "node tests/viewer-model.cjs",
+      "exit_code": 0,
+      "tail": "PASS: replay eligibility boundaries, large ordinal labels, irregular frame interpolation and endpoint clamping.\nPASS: late out-of-order arrival below a completed cursor is discovered without endless or mid-scan resets.\n"
+    },
+    {
+      "suite": "baseline",
+      "command": "node baseline/tests/physics-scan.cjs",
+      "exit_code": 0,
+      "tail": "Full relative state repeats across 3 observed cycles',\n    period: 5.713338304503539,\n    cycles: 3,\n    maxNormalizedError: 0.0012983389502081444,\n    tolerance: 0.02\n  }\n}\nPASS: exhaustive enumeration order and direct resume, 1.794 billion count, radius spacing, all-rest physics, collapse/escape rejection, periodic reference detection and insufficient-cycle rejection.\nPASS: first 28 short rest-start trials excluded; trial 29 qualifies; exact five-second boundary excluded.\nPASS: all escapes qualify, including a real all-rest scan escape at 4.769 seconds; other short outcomes remain excluded.\n"
+    }
+  ],
+  "campaign": {
+    "radius": 2,
+    "duration": 6,
+    "start": "0",
+    "end": "1000",
+    "workers": 4,
+    "accepted": 1000,
+    "unique_trial_ids": 1000,
+    "missing_ordinals": 0,
+    "duplicate_trial_ids": 0,
+    "outcomes": {
+      "Close encounter": 843,
+      "Bounded": 138,
+      "Escaped": 19
+    },
+    "retained_replays": 193,
+    "escaped_under_5s": 6,
+    "solver_digest": "eff19c3bc79468fc2485d448aad46ac7d7c1bed2be286a8ca777894b5706cab1"
+  },
+  "limitations": [
+    "CPU reference only; no HIP or RX 7900 XTX execution",
+    "Loopback HTTP tested; no second physical machine tested",
+    "Rendered browser QA pending: local browser install failed, cloud browser cannot reach localhost",
+    "Trusted LAN API lacks authentication/TLS termination",
+    "1000-trial adjacent-range campaign is a bounded integration test, not an exhaustive stability search"
+  ]
+}

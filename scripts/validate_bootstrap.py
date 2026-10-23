@@ -2,10 +2,14 @@
 from pathlib import Path
 import hashlib
 import json
+import subprocess
 
 
 def validate(root):
     manifest = json.loads((root / 'PACK_MANIFEST.json').read_text())
+    tracked = set(subprocess.run(['git', 'ls-files', '-z'], cwd=root, check=True,
+                                 capture_output=True).stdout.decode().strip('\0').split('\0'))
+    assert tracked - {'PACK_MANIFEST.json'} == set(manifest['files_sha256']), 'Tracked file inventory differs'
     for name, expected in manifest['files_sha256'].items():
         path = root / name
         assert path.resolve().is_relative_to(root.resolve()), name

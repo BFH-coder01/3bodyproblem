@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>Three-Body Lab · Pipeline Observatory</title>
+  <link rel="stylesheet" href="/viewer/style.css">
+  <script defer src="/viewer/model.js"></script>
+  <script defer src="/viewer/app.js"></script>
+</head>
+<body>
+  <header class="masthead">
+    <a class="wordmark" href="/" aria-label="Three-Body Lab home"><span class="logo" aria-hidden="true">∴</span> THREE-BODY <strong>LAB</strong></a>
+    <span class="mode"><span class="live-dot" aria-hidden="true"></span> PIPELINE OBSERVATORY</span>
+  </header>
+  <main>
+    <div class="heading"><div><p class="eyebrow">01 / OBSERVE THE EXPERIMENT</p><h1>Three bodies.<br><span>Every interaction.</span></h1></div><p class="intro">Independent trials, computed by workers.<br>Recorded motion, replayed here.<br><span>All search bodies begin at rest.</span></p></div>
+    <section class="campaign" aria-label="Experiment progress">
+      <label class="experiment-label">EXPERIMENT<select id="experiment" aria-label="Select experiment"><option value="">Loading experiments…</option></select></label>
+      <div class="metric"><span>ACCEPTED TRIALS</span><strong id="accepted">—</strong></div>
+      <div class="metric"><span>CAMPAIGN RANGE</span><strong id="total">—</strong></div>
+      <div class="metric"><span>WORK REMAINING</span><strong id="remaining">—</strong></div>
+      <button id="refresh" class="button subtle" type="button">Refresh</button>
+      <div class="progress" aria-hidden="true"><span id="progress"></span></div>
+    </section>
+    <div id="notice" class="notice" role="status" aria-live="polite">Connecting to the coordinator…</div>
+    <section class="observatory" aria-label="Recorded simulation replay">
+      <div class="stage">
+        <div class="stage-top"><span id="trial-label">AWAITING A REPLAY</span><span id="outcome" class="badge">READY</span></div>
+        <canvas id="universe" width="760" height="620" aria-label="Recorded red, green and blue bodies with their trails">Your browser needs canvas support to display the replay.</canvas>
+        <div id="stage-empty" class="stage-empty"><span class="empty-symbol" aria-hidden="true">∴</span><h2>Waiting for recorded motion</h2><p>Start workers to produce trial results.<br>Retained replays appear automatically.</p></div>
+        <div class="stage-bottom"><span>OBSERVATION SQUARE · 12 × 12 m</span><span class="body-legend"><i class="red"></i> RED <i class="green"></i> GREEN <i class="blue"></i> BLUE</span></div>
+      </div>
+      <aside class="inspector">
+        <p class="eyebrow">RECORDED TRIAL</p><h2 id="selected-title">No trial selected</h2><p id="selected-note" class="muted">Select a row to inspect its final state and replay.</p>
+        <dl class="details"><div><dt>Simulated duration</dt><dd id="duration">—</dd></div><div><dt>Integration steps</dt><dd id="steps">—</dd></div><div><dt>Maximum energy drift</dt><dd id="energy">—</dd></div><div><dt>Replay retention</dt><dd id="retention">—</dd></div></dl>
+        <div class="coordinates"><h3>STARTING POSITIONS / m</h3><p id="initial-positions">—</p><h3>FINAL POSITIONS / m</h3><p id="final-positions">—</p></div>
+        <div class="science-note"><span class="note-mark">↗</span><p><strong>Bounded is an observation.</strong> An orbit candidate is a recurrence flag, not proof of permanent stability. Close encounters stop this point-mass model; bodies do not merge.</p></div>
+      </aside>
+    </section>
+    <section class="transport" aria-label="Replay controls">
+      <button id="play" type="button" class="button primary" aria-pressed="true">Pause</button><button id="next" type="button" class="button">Next replay <span aria-hidden="true">→</span></button>
+      <label class="speed">SPEED<select id="speed" aria-label="Replay speed"><option value="0.25">0.25×</option><option value="1" selected>1×</option><option value="3">3×</option><option value="10">10×</option></select></label>
+      <label class="auto"><input type="checkbox" id="auto" checked> Auto playlist</label>
+      <div class="timeline"><input id="scrub" type="range" min="0" max="1" value="0" step="0.001" aria-label="Recorded simulation time" disabled><output id="clock">0.00 / 0.00 s</output></div>
+    </section>
+    <section class="results" aria-labelledby="results-title">
+      <div class="section-heading"><div><p class="eyebrow">02 / REPRODUCIBLE RESULTS</p><h2 id="results-title">Trial ledger</h2></div><p>Every accepted trial is listed.<br><span>Auto replay: all escapes + other trials lasting &gt;5 s.</span></p></div>
+      <div class="table-wrap"><table><thead><tr><th scope="col">TEST</th><th scope="col">STARTING POSITIONS / m</th><th scope="col">OUTCOME</th><th scope="col">DURATION</th><th scope="col">FINAL FRAME</th><th scope="col">REPLAY</th></tr></thead><tbody id="trials"><tr><td colspan="6" class="table-empty">Loading trial results…</td></tr></tbody></table></div>
+      <div class="pagination"><span id="page-label">Page 1 · up to 50 trials</span><div><button id="previous-page" class="button subtle" disabled type="button">← Previous</button><button id="next-page" class="button subtle" disabled type="button">Next page →</button></div></div>
+    </section>
+    <footer><span>THREE-BODY LAB / CPU REFERENCE PIPELINE</span><p>Playback and computation run independently. Times shown are physical simulation seconds.</p></footer>
+  </main>
+</body>
+</html>

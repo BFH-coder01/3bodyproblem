@@ -17,7 +17,13 @@ jobs:
           git --version
       - name: Workspace helper tests
         run: python3 -m unittest discover -s tests -v
+      - name: Independent adversarial verification
+        run: python3 -m unittest discover -s verification -v
       - name: Browser physics and replay tests
         run: node baseline/tests/physics-scan.cjs
+      - name: Stateless reference protocol tests
+        run: node tests/reference-pipeline.cjs
+      - name: Viewer data and playback tests
+        run: node tests/viewer-model.cjs
       - name: Manifest and task graph
         run: python3 scripts/validate_bootstrap.py
