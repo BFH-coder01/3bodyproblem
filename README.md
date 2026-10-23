@@ -1,10 +1,22 @@
-# Three-Body Lab — distributed development pack
+# Three-Body Lab — distributed simulation pipeline
 
 Prepared for Werner van Huffel · 23 October 2026 · Australia/Brisbane.
 
 **Recommendation:** one coordinator, protected `main`, one local clone per machine, and one isolated Git worktree per active development task. Agents own task branches; the coordinator owns integration; Werner owns scientific scope and releases.
 
-This repository contains the browser simulator baseline, architecture, design, roadmap and tested workspace-tooling starter. It does not implement the distributed solver, configure GitHub, install AMD drivers, connect to your rig, or start autonomous agents.
+This repository now includes a working CPU pipeline: stateless trial functions, a durable lease/result coordinator, local parallel workers, HTTP workers for a trusted LAN, and a separate replay viewer. The original browser solver remains unchanged as the reference. Native FP64/HIP acceleration and actual RX 7900 XTX acceptance remain subsequent roadmap work.
+
+## Run the pipeline
+
+Install Node 18+ and Python 3.11+, then run from this repository root:
+
+```bash
+python3 -m services.pipeline init --db data/demo.sqlite --radius 2 --duration 6 --count 60 --chunk-size 5
+python3 -m services.pipeline run --db data/demo.sqlite --workers 2
+python3 -m services.pipeline serve --db data/demo.sqlite --port 8765
+```
+
+Open http://127.0.0.1:8765. On Windows, use `python` if that is your Python command. [The runbook](docs/10-cpu-pipeline-runbook.md) covers multiple machines, recovery and function boundaries. [Rig readiness](docs/09-rig-readiness.md) collects read-only environment evidence. [The active process](ops/ACTIVE_PROCESS.md) records agent ownership and integration authority.
 
 ## Read in this order
 
@@ -38,14 +50,16 @@ python -m unittest discover -s tests -v
 
 `plan` changes nothing. `create` creates a named task branch and worktree from a resolved commit and writes a local task envelope. Neither command pushes, opens a PR, merges, changes GitHub permissions, starts an agent, or installs software. Read the runbook before creating worktrees.
 
-TBL-000 is prepared for review; other task statuses are `planned`; a roadmap-ready task is not an instruction to dispatch it before its dependencies are accepted. Sample schemas are proposed starting contracts and must pass the P1 contract gate before implementation agents depend on them.
+TBL-000 was merged as PR #1. The CPU reference increment uses the frozen `contracts/pipeline-v1.md` interface and independent CPU task assignments in `ops/ACTIVE_PROCESS.md`. The native/HIP roadmap retains its separate rig, contract and parity gates; the draft native schemas are not silently accepted by this CPU implementation.
 
 ## Check this foundation
 
 ```bash
 python3 -m unittest discover -s tests -v
 node baseline/tests/physics-scan.cjs
+node tests/reference-pipeline.cjs
+node tests/viewer-model.cjs
 python3 scripts/validate_bootstrap.py
 ```
 
-The `bootstrap` GitHub Actions workflow runs the workspace, browser physics/replay and inventory checks. GPU checks and protected-branch settings have not been configured. TBL-000 includes the approved browser source import; independent verification and acceptance remain pending. The following gates are rig inventory (TBL-001), scientific model decision (TBL-002), and contracts (TBL-010). No remote agent has been launched and routine main-merge authority has not been delegated.
+The `bootstrap` GitHub Actions workflow runs Python unit/process/HTTP tests, browser-reference physics tests, stateless protocol tests, viewer-model tests and the tracked-source inventory check. See `VALIDATION_REPORT.md` for evidence and limitations. The coordinator uses isolated task worktrees and independent model verification during active sessions; this does not create a permanently running unattended development service. Runtime workers execute only the pinned reference implementation. No GPU run, driver change, live Site deployment or mathematical proof of stability is implied.

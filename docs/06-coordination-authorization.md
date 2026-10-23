@@ -19,7 +19,7 @@ Authority levels are proposed project governance, not a change to platform tool 
 
 ## One-time activation steps
 
-1. The owner supplied https://github.com/BFH-coder01/3bodyproblem, observed as public. A bounded bootstrap branch and draft PR are in scope. Routine main merges remain undelegated.
+1. The owner supplied https://github.com/BFH-coder01/3bodyproblem, approved publishing the browser baseline, and directed the coordinator to merge PR #1. On 23 October 2026 the owner then requested coordinator control and parallel agents to develop the stateless pipeline. Routine in-scope implementation, verification and integration are delegated for this increment; see `ops/ACTIVE_PROCESS.md`. This does not delegate model changes, rig driver changes, protection bypasses or public deployment.
 2. Connect the appropriate GitHub account/app with access to that repository, or open the authenticated checkout in the local coding session. Repository-scoped content/PR/check-reading capabilities are sufficient for routine work; administration rights are only needed for the human's initial protections setup. Avoid granting routine agents organization administration.
 3. Set protections/rules in GitHub if your plan supports them. Confirm required checks exist, stale reviews are invalidated, no bypass is being used, and review actors can satisfy the chosen policy.
 4. Place `AGENTS.md`, the agreed Git model and templates in the accepted baseline. Name the coordinator and independent reviewer identities. Record which real GitHub actor creates PRs, approves reviews and merges.
