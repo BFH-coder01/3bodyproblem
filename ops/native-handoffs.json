@@ -1,0 +1,46 @@
+{
+  "date": "2026-10-23",
+  "accepted_base": "d5cf5342bad7c09d1dd3531de2af6076808e7a5d",
+  "frozen_contract_commit": "027e34be710cef66bbf0f6556915b912d45d4dc7",
+  "reviewed_code_head": "239adb2697408173754bf2d9397b2f6929f554f9",
+  "process": "ops/NATIVE_PROCESS.md",
+  "components": {
+    "NAT-020": {
+      "branch": "agent/native-core/nat-020",
+      "commits": [
+        "2bc0c154df51c3df6181a6523fe35762a299bb7b",
+        "c7abc222eee5d8c25013e6ce57a16cbc78a83715",
+        "870683f833612f200934bbbd46a44c2de144b541"
+      ]
+    },
+    "NAT-030": {
+      "branch": "agent/native-cli/nat-030",
+      "commits": [
+        "3816c659df0d7dad78eadfd07def1cab3b98d5b1",
+        "c83f06eaeb102ee9af35da887f0d9e4bfb97bba8"
+      ]
+    },
+    "NAT-040": {
+      "branch": "agent/native-parity/nat-040",
+      "commits": [
+        "36ac395fb831671cfbc8812d7bbfcf5143076d75",
+        "4ae981114090d4b0a04e4f3967a52d38b82bb12a",
+        "74016dc7197158f31fa2c1e691e68d16437cd30a",
+        "5c50b03765956deed4d7cd8784fbaa8f1f8a8aaf"
+      ]
+    },
+    "NAT-060": {
+      "branch": "agent/native-verifier/nat-060",
+      "commits": [
+        "b63a15fd7d6d9b8bc285de1b0b1229fc6fdfe476",
+        "126f796fb2ac2289ab62d62702475a9db991f670"
+      ]
+    }
+  },
+  "publication": "Coordinator publishes one integration snapshot/PR. Component branch names and SHAs are local author handoffs; they are not retained as redundant remote branches. Final accepted publication SHA/tree is recorded in the PR and merge history.",
+  "limits": [
+    "No production native backend enrollment",
+    "No GPU or physical lab execution",
+    "Actual rendered viewer QA remains pending from previous wave"
+  ]
+}

@@ -26,3 +26,8 @@ The 60-trial local/HTTP integration and 1,000-trial four-process campaign reconc
 Next dispatch: run `python scripts/rig_inventory.py --out data/rig-inventory.json` on the actual 7900 XTX rig, record the chosen tuple, then implement native parity and the smallest GPU smoke test as separate workspaces. The CPU reference remains usable while those gates are pending. No native/GPU task is labelled passed from this hosted CPU run.
 
 Agent sessions are bounded to active coordinator work. Future sessions resume by reading this file, the task handoffs, current main and verification evidence; no permanently running background agent was installed on the user's computers.
+
+
+## Cloud native reference wave
+
+Following the user's instruction to defer physical lab testing and proceed in cloud capacity, the coordinator dispatched the isolated native FP64 wave documented in ops/NATIVE_PROCESS.md. Its source, tests, independent findings and source/build-linked parity evidence are recorded in the repository. The accepted JavaScript pipeline is unchanged. Native worker enrollment, lab compatibility and GPU execution remain separate gates. Resume from the latest merged PR, docs/11-native-reference.md and ops/native-handoffs.json.

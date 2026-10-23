@@ -4,7 +4,7 @@ Prepared for Werner van Huffel · 23 October 2026 · Australia/Brisbane.
 
 **Recommendation:** one coordinator, protected `main`, one local clone per machine, and one isolated Git worktree per active development task. Agents own task branches; the coordinator owns integration; Werner owns scientific scope and releases.
 
-This repository now includes a working CPU pipeline: stateless trial functions, a durable lease/result coordinator, local parallel workers, HTTP workers for a trusted LAN, and a separate replay viewer. The original browser solver remains unchanged as the reference. Native FP64/HIP acceleration and actual RX 7900 XTX acceptance remain subsequent roadmap work.
+This repository includes a working CPU pipeline: stateless trial functions, a durable lease/result coordinator, local parallel workers, HTTP workers for a trusted LAN, and a separate replay viewer. The original browser solver remains unchanged as the reference. An isolated C++17 FP64 reference and cross-language parity suite are also available; native pipeline enrollment, HIP acceleration and actual RX 7900 XTX acceptance remain subsequent gates.
 
 ## Run the pipeline
 
@@ -16,7 +16,7 @@ python3 -m services.pipeline run --db data/demo.sqlite --workers 2
 python3 -m services.pipeline serve --db data/demo.sqlite --port 8765
 ```
 
-Open http://127.0.0.1:8765. On Windows, use `python` if that is your Python command. [The runbook](docs/10-cpu-pipeline-runbook.md) covers multiple machines, recovery and function boundaries. [Rig readiness](docs/09-rig-readiness.md) collects read-only environment evidence. [The active process](ops/ACTIVE_PROCESS.md) records agent ownership and integration authority.
+Open http://127.0.0.1:8765. On Windows, use `python` if that is your Python command. [The runbook](docs/10-cpu-pipeline-runbook.md) covers multiple machines, recovery and function boundaries. [Native reference validation](docs/11-native-reference.md) explains the optional C++ build and provenance-checked comparisons. [Rig readiness](docs/09-rig-readiness.md) collects read-only environment evidence. [The active process](ops/ACTIVE_PROCESS.md) records agent ownership and integration authority.
 
 ## Read in this order
 

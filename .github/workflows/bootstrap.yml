@@ -15,15 +15,23 @@ jobs:
           python3 -c "import sys; assert sys.version_info >= (3,11); print(sys.version)"
           node -e "if (+process.versions.node.split('.')[0] < 18) process.exit(1); console.log(process.version)"
           git --version
+          c++ --version
       - name: Workspace helper tests
         run: python3 -m unittest discover -s tests -v
       - name: Independent adversarial verification
         run: python3 -m unittest discover -s verification -v
+      - name: Independent native adversarial verification
+        run: python3 -m unittest verification.native_reference_adversarial -v
       - name: Browser physics and replay tests
         run: node baseline/tests/physics-scan.cjs
       - name: Stateless reference protocol tests
         run: node tests/reference-pipeline.cjs
       - name: Viewer data and playback tests
         run: node tests/viewer-model.cjs
+      - name: Native core with address and undefined-behavior sanitizers
+        run: |
+          mkdir -p build
+          c++ -std=c++17 -O1 -g -fno-fast-math -ffp-contract=off -fsanitize=address,undefined -fno-omit-frame-pointer -I native/include native/core/threebody.cpp native/tests/core_test.cpp -o build/native-core-sanitized
+          ASAN_OPTIONS=detect_leaks=0 ./build/native-core-sanitized
       - name: Manifest and task graph
         run: python3 scripts/validate_bootstrap.py
